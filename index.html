@@ -687,9 +687,14 @@ div:has(>.panel #lm)>.panel{height:auto;box-sizing:border-box}
  .bwrap{width:100%}
  .side{width:100%;min-width:0}
  .usage{text-align:center;line-height:1.35}
- .side .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
- .side .btns .cb{width:100%;min-width:0;padding:0 8px;white-space:normal;font-size:.98rem}
 }
+/* nút Chạy thử / Xóa hết / Ra ngoài / Xóa 1: cùng chiều rộng ở mọi màn hình */
+.side .btns{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.side .btns .cb{width:100%;min-width:0;flex:none;padding:0 8px;white-space:normal;justify-content:center}
+@media (max-width:859px){.side .btns .cb{font-size:.98rem}}
+/* hàng nút Xóa 1 / Xóa hết / Chạy: cùng chiều rộng */
+.row>button:not(.sm){flex:1 1 0!important;min-width:0;width:auto}
+.row .go{flex:1 1 0!important}
 </style>
 </head>
 <body class="sky">
