@@ -661,6 +661,93 @@ div:has(>.panel #lm)>.panel{height:auto;box-sizing:border-box}
 #tray .crow{display:contents!important}
 </style>
 
+<style id="mobile">
+/* ===== MOBILE v4: gọn, cân đối, thân thiện ngón tay (≤ 859px) ===== */
+@media (max-width:859px){
+ html{min-height:100%}
+ main{padding:6px 12px calc(28px + env(safe-area-inset-bottom,0px))!important}
+ header{padding:2px 0!important}
+ /* thanh trên: nút Các bài + tiêu đề cùng 1 hàng */
+ .topbar{display:flex!important;flex-wrap:nowrap!important;align-items:center;gap:10px;min-height:0!important;margin:2px 0 6px}
+ .topbar #bk2{position:static!important;flex:none;margin:0!important;padding:6px 14px!important;font-size:.9rem!important;box-shadow:0 3px 0 #d9a31f!important;white-space:nowrap}
+ .topbar #bk2 .sp{width:20px;height:20px}
+ .gt{flex:1 1 auto!important;order:0!important;min-width:0;text-align:left!important;font-size:1.12rem!important;line-height:1.15}
+ .hint{margin:4px 0 10px!important;padding:7px 12px!important;font-size:.88rem!important;line-height:1.25;border-radius:16px!important}
+ #pn{margin-bottom:6px}
+ #pn.panel:has(.pad),#pn.panel:has(.ecard),#pn.plain:has(.tiles),#pn.plain:has(.ord){padding:10px!important;border-width:3px!important;border-radius:24px!important}
+ .card{padding:10px 12px!important;margin:8px 0!important;border-radius:22px!important}
+ #msg{min-height:0!important;margin-top:8px}#msg:empty{display:none}
+ #next{margin-top:8px!important}
+ .helpers{gap:8px!important;margin-top:12px!important}
+ .helpers .cb{min-height:46px!important;font-size:.9rem!important}
+ .par{margin:8px 0}
+
+ /* ---------- Bàn cờ: vừa chiều rộng + chiều cao màn hình ---------- */
+ #board{--c:clamp(30px,min(calc((100vw - 76px)/var(--w,6)),calc((100svh - 400px)/var(--h,6))),74px)!important;border-width:4px!important;border-radius:16px!important}
+ .wrap{margin:0 auto}
+ .info{margin-bottom:8px}
+
+ /* ---------- Xếp mũi tên / Điền chỗ thiếu / Bắt lỗi / Đoán đường ---------- */
+ #pn:has(.pad),#pn:has(>#tray):not(:has(.pad)){display:flex!important;flex-direction:column;gap:10px;grid-template-rows:none!important}
+ #pn:has(.pad)>*,#pn:has(>#tray):not(:has(.pad))>*{margin-top:0!important;margin-bottom:0!important}
+ #pn:has(.pad) .info,#pn:has(>#tray):not(:has(.pad)) .info{margin:0!important;justify-content:center}
+ #pn #tray,#pn:has(.pad) #tray,#pn:has(>#tray):not(:has(.pad)) #tray{height:auto!important;min-height:58px!important;max-height:none!important;overflow:visible!important;gap:12px 20px!important;padding:12px 12px 12px 14px!important;border-radius:16px!important;margin:0!important}
+ #tray .chip,#pn #tray .chip{flex:0 0 44px!important;width:44px!important;height:44px!important;font-size:1.2rem!important;border-radius:12px!important}
+ #tray .chip::before{width:20px!important;height:20px!important;font-size:.72rem!important;left:-8px!important;top:-8px!important}
+ .pad{gap:8px!important;margin:0!important}
+ .pad button{height:52px!important;font-size:1.5rem!important;border-radius:16px!important}
+ .row{gap:8px!important;margin:0!important;flex-wrap:nowrap!important}
+ .row button{flex:1 1 0!important;min-width:0;min-height:48px!important;padding:0 6px!important;font-size:.95rem!important;white-space:nowrap}
+ .row button.go,.row .go{flex:1.35 1 0!important;animation:none!important;outline:0!important}
+ button.go{animation:none!important;box-shadow:0 5px 0 #3fb877!important}
+
+ /* ---------- Khối lệnh (Blockly) ---------- */
+ .play{display:flex!important;flex-direction:column;gap:10px!important;align-items:stretch;background:none!important;padding:0!important;margin-top:10px}
+ .bwrap{display:flex;justify-content:center;width:100%}
+ .side{width:100%;gap:8px!important}
+ .usage{font-size:.88rem;line-height:1.2;text-align:center;white-space:normal;width:100%}
+ .slots{gap:5px}.slots i{width:24px;height:18px;border-radius:5px}
+ .side .btns{display:flex!important;gap:8px;width:100%}
+ .side .btns .cb,.btns button{flex:1 1 0!important;min-width:0!important;width:auto!important;min-height:46px;padding:0 8px!important;font-size:.92rem!important;white-space:nowrap;writing-mode:horizontal-tb!important}
+ #pn:has(.ecard) #board{--c:clamp(30px,min(calc((100cqw - 14px)/var(--w,6)),calc((100svh - 420px)/var(--h,6))),70px)!important}
+ .ecard{margin:0!important;border-radius:22px!important}
+ .tabs2{padding:8px!important;gap:6px}.tb{padding:6px 12px!important;font-size:.9rem}
+ .edit{min-height:0!important}
+ .pal{max-height:none!important;padding:8px!important;gap:6px!important;display:grid!important;grid-template-columns:1fr 1fr;flex:none!important}
+ .pal .blk{padding:8px 10px;font-size:.9rem;min-width:0;width:100%!important;max-width:100%}
+ .pal .blk.cs,.pal .blk.bp{grid-column:1/-1}
+ .pal .blk.bp{min-height:0!important}
+ .work{padding:8px!important}
+ .work #tray{min-height:84px!important}
+ .hat{font-size:.9rem;padding:5px 10px}
+
+ /* ---------- Lập trình âm nhạc ---------- */
+ #pn.plain:has(.avail){display:block!important}
+ .avail{display:flex!important;flex-wrap:wrap;gap:8px!important}
+ .nt{flex:1 1 calc(25% - 8px);min-width:64px;width:auto!important;height:58px!important;font-size:1rem!important;border-radius:16px!important;box-shadow:0 4px 0 rgba(0,0,0,.2)!important;padding:0!important}
+ .card.smp{gap:5px!important}.card.smp .cb{padding:8px 12px!important;font-size:.95rem!important;margin-right:4px}
+ .card.smp i{height:24px!important;border-radius:6px!important}
+ .card:has(#und){display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+ .card:has(#und)>b{font-size:1rem}
+ .card:has(#und)>#und{order:1;margin-left:auto;float:none!important;width:44px!important;height:36px!important;box-shadow:0 3px 0 #d9d3c1}
+ .card:has(#und)>small{order:2;flex:1 1 100%;font-size:.8rem}
+ .card:has(#und)>.drop{order:3;flex:1 1 100%;margin-top:2px}
+ .drop{min-height:56px!important;padding:8px!important;gap:6px;border-width:2px!important;font-size:.9rem}
+ .sn{height:44px!important;font-size:.92rem;min-width:44px}
+ .card.keys{padding:0!important;margin:8px 0!important}.card.keys .note{height:78px!important;font-size:.78rem;padding-bottom:6px}
+ .btns{gap:8px}
+
+ /* ---------- Các dạng bài khác ---------- */
+ .opts button{min-height:52px;font-size:1.05rem}
+ .tl{width:calc(25% - 8px);min-width:68px}
+}
+@media (max-width:380px){
+ .row button{font-size:.85rem!important}
+ .nt{height:52px!important}
+ #tray .chip,#pn #tray .chip{flex-basis:40px!important;width:40px!important;height:40px!important}
+}
+</style>
+
 </head>
 <body class="sky">
 <main>
